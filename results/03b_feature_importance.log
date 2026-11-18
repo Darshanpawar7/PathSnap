@@ -1,0 +1,28 @@
+without Distance         top1=0.8806 (undirected 0.9362)
+without Position on arc  top1=0.8807 (undirected 0.9317)
+without Direction        top1=0.6139 (undirected 0.9279)
+without Motion           top1=0.8968 (undirected 0.9420)
+without Network          top1=0.8956 (undirected 0.9407)
+without Neighbours       top1=0.8842 (undirected 0.9301)
+         feature        gain  splits  gain_share           group
+  dist_ratio_min 874633.9680     752      0.3530        Distance
+along_progress_m 449592.0485    1752      0.1815       Direction
+         cos_dir 299784.9724     978      0.1210       Direction
+  dist_minus_min 138540.4059     772      0.0559        Distance
+            rank 123412.1373     572      0.0498        Distance
+      beyond_end 102805.0278     224      0.0415 Position on arc
+  win5_line_mean  82282.4780    2074      0.0332      Neighbours
+     log_arc_len  80851.0004    4468      0.0326 Position on arc
+   win2_seg_mean  66352.4789    1520      0.0268      Neighbours
+       speed_mps  48265.6167    1408      0.0195          Motion
+          proj_t  43102.5914    1768      0.0174 Position on arc
+        turn_deg  29211.4542    1477      0.0118          Motion
+                setting  n_features  test_top1  test_top1_undirected  drop_vs_all_points
+        all 24 features          24     0.8949                0.9413              0.0000
+       without Distance          17     0.8806                0.9362              1.4301
+without Position on arc          21     0.8807                0.9317              1.4248
+      without Direction          20     0.6139                0.9279             28.1054
+         without Motion          20     0.8968                0.9420             -0.1879
+        without Network          21     0.8956                0.9407             -0.0626
+     without Neighbours          21     0.8842                0.9301              1.0699
+done in 33s

@@ -1,0 +1,2 @@
+train nearest-road top1 = 0.5527  undirected = 0.8788  (n=183260)
+student_test nearest-road top1 = 0.5394  undirected = 0.8912  (n=19160)
