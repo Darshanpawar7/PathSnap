@@ -11,4 +11,3 @@ optuna>=4.0
 folium>=0.17
 fastapi>=0.110
 uvicorn[standard]>=0.29
-pyarrow>=15

@@ -1,0 +1,17 @@
+Trips: train=80, student_test=10
+GPS points: train=208,417, student_test=19,160
+Points per trip (all): min=262, median=1496, max=19313
+NaN rows: 0, out-of-range coords: 0, non-increasing timestamps: 0
+Share of 1 s steps: 0.967; steps > 5 s: 1260; > 30 s: 135; max gap 153064 s
+Track inside network bbox (mean): 1.000  -> column order lon,lat confirmed
+Arcs per trip: min=649, median=18762, max=307392
+Two-way arc share (median): 0.95
+Isolated nodes (total): 0, components per trip median=19, largest component share median=0.980
+Route ids valid in all trips: True; consecutive route arcs connected (mean): 0.9994
+GPS->aligned reference arc distance (all train): median=5.7 m, p95=142.0 m, share > 50 m=0.1116
+Same, excluding trips ['00000033', '00000054']: median=5.0 m, p95=18.8 m, p99=70.0 m, max=644.6 m, share > 50 m=0.0139
+Trip 00000033: GPS ~7 m from roads but ~122 m from the reference route -> route does not describe the track
+Trip 00000054: GPS ~84 m from any road in its network -> network incomplete for this track
+Largest time gap: trip 00000090 (153064 s)
+Trip centres: lon -100.35..137.22, lat -34.62..61.67
+Trips flagged (gap > 30 s, p95 distance > 30 m, or route not fully connected): ["00000002", "00000004", "00000006", "00000011", "00000014", "00000021", "00000024", "00000028", "00000032", "00000033", "00000037", "00000041", "00000042", "00000043", "00000044", "00000054", "00000055", "00000062", "00000066", "00000069", "00000070", "00000075", "00000078", "00000080", "00000081", "00000084", "00000085", "00000088", "00000089", "00000090", "00000098", "00000065", "00000076"]

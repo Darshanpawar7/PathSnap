@@ -10,7 +10,7 @@ venv/
 .ipynb_checkpoints/
 
 # large intermediate files (rebuilt by the scripts)
-data/processed/*.parquet
+data/processed/*.pkl
 data/processed/*.npz
 
 # OS / editor
