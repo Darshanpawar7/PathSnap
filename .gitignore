@@ -1,0 +1,20 @@
+# raw dataset (course material, shared separately via Google Drive)
+data/raw/
+data/eval/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# large intermediate files (rebuilt by the scripts)
+data/processed/*.parquet
+data/processed/*.npz
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
