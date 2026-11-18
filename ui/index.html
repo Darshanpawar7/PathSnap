@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PathSnap Evaluator</title>
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="panel">
+    <header class="brand">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <div>
+        <h1>PathSnap</h1>
+        <p>Evaluator console &middot; map-matching demo</p>
+      </div>
+    </header>
+
+    <section class="block">
+      <h2>API server (laptop 1)</h2>
+      <form id="connect-form" class="connect">
+        <input id="api-url" type="url" spellcheck="false" autocomplete="off" aria-label="API base URL" placeholder="http://192.168.x.x:8000" required>
+        <button type="submit" id="connect-btn">Connect</button>
+      </form>
+      <p id="status" class="status" role="status">Not connected</p>
+    </section>
+
+    <section class="block">
+      <h2>Evaluation trips</h2>
+      <div id="trips" class="trips"><p class="hint">Connect to load the trips.</p></div>
+    </section>
+
+    <section class="block" id="result-block" hidden>
+      <h2>Result <span id="result-trip" class="tag"></span></h2>
+      <div class="headline">
+        <div>
+          <span id="m-hmm" class="big">-</span>
+          <span class="big-label">GPS points on the correct road (HMM)</span>
+        </div>
+      </div>
+      <table class="metrics">
+        <tbody id="metrics-body"></tbody>
+      </table>
+      <p class="hint small">Reference routes stay on the server. Only the scores above are sent to this page.</p>
+    </section>
+
+    <section class="block legend">
+      <h2>Map layers</h2>
+      <ul>
+        <li><i class="sw sw-gps"></i>Raw GPS points</li>
+        <li><i class="sw sw-hmm"></i>Predicted route (classifier + HMM)</li>
+        <li><i class="sw sw-clf"></i>Classifier only (no HMM)</li>
+        <li><i class="sw sw-start"></i>Start &nbsp; <i class="sw sw-end"></i>End</li>
+      </ul>
+    </section>
+  </aside>
+
+  <main class="map-wrap">
+    <div id="map" aria-label="Map"></div>
+    <div id="overlay" class="overlay" hidden><div class="spinner" aria-hidden="true"></div><span id="overlay-text">Matching...</span></div>
+  </main>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

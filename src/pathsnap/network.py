@@ -121,15 +121,10 @@ class RoadNetwork:
             path.append(prev[path[-1]])
         return path[::-1]
 
-    def arc_between(self, u: int, v: int) -> int:
-        """Shortest arc id going u -> v, or -1."""
-        best, best_len = -1, np.inf
-        for k in range(self._indptr[u], self._indptr[u + 1]):
-            if self._adj_to[k] == v and self._adj_w[k] < best_len:
-                best_len = self._adj_w[k]
-        if best_len == np.inf:
-            return -1
-        cand = np.flatnonzero((self.frm == u) & (self.to == v))
-        if len(cand):
-            best = int(cand[np.argmin(self.length[cand])])
-        return best
+    def arc_id(self, u: int, v: int) -> int:
+        """Id of the (shortest) arc going u -> v, or -1."""
+        if not hasattr(self, "_edge_index"):
+            order = np.argsort(-self.length)  # shorter arcs written last -> they win
+            self._edge_index = {(int(a), int(b)): int(i) for i, a, b in
+                                zip(order, self.frm[order], self.to[order])}
+        return self._edge_index.get((int(u), int(v)), -1)
