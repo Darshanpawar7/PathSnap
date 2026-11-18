@@ -1,0 +1,184 @@
+{
+  "LogisticRegression": {
+    "family": "Linear",
+    "params": {
+      "standardscaler__copy": "True",
+      "standardscaler__with_mean": "True",
+      "standardscaler__with_std": "True",
+      "logisticregression__C": "1.0",
+      "logisticregression__class_weight": "None",
+      "logisticregression__dual": "False",
+      "logisticregression__fit_intercept": "True",
+      "logisticregression__intercept_scaling": "1",
+      "logisticregression__l1_ratio": "0.0",
+      "logisticregression__max_iter": "1000",
+      "logisticregression__n_jobs": "None",
+      "logisticregression__penalty": "deprecated",
+      "logisticregression__random_state": "None",
+      "logisticregression__solver": "lbfgs",
+      "logisticregression__tol": "0.0001",
+      "logisticregression__verbose": "0",
+      "logisticregression__warm_start": "False"
+    }
+  },
+  "GaussianNB": {
+    "family": "Probabilistic",
+    "params": {
+      "standardscaler__copy": "True",
+      "standardscaler__with_mean": "True",
+      "standardscaler__with_std": "True",
+      "gaussiannb__priors": "None",
+      "gaussiannb__var_smoothing": "1e-09"
+    }
+  },
+  "KNN": {
+    "family": "Instance-based",
+    "params": {
+      "standardscaler__copy": "True",
+      "standardscaler__with_mean": "True",
+      "standardscaler__with_std": "True",
+      "kneighborsclassifier__algorithm": "auto",
+      "kneighborsclassifier__leaf_size": "30",
+      "kneighborsclassifier__metric": "minkowski",
+      "kneighborsclassifier__metric_params": "None",
+      "kneighborsclassifier__n_jobs": "2",
+      "kneighborsclassifier__n_neighbors": "25",
+      "kneighborsclassifier__p": "2",
+      "kneighborsclassifier__weights": "distance"
+    }
+  },
+  "DecisionTree": {
+    "family": "Tree-based",
+    "params": {
+      "ccp_alpha": "0.0",
+      "class_weight": "None",
+      "criterion": "gini",
+      "max_depth": "12",
+      "max_features": "None",
+      "max_leaf_nodes": "None",
+      "min_impurity_decrease": "0.0",
+      "min_samples_leaf": "50",
+      "min_samples_split": "2",
+      "min_weight_fraction_leaf": "0.0",
+      "monotonic_cst": "None",
+      "random_state": "42",
+      "splitter": "best"
+    }
+  },
+  "RandomForest": {
+    "family": "Ensemble (bagging)",
+    "params": {
+      "bootstrap": "True",
+      "ccp_alpha": "0.0",
+      "class_weight": "None",
+      "criterion": "gini",
+      "max_depth": "16",
+      "max_features": "sqrt",
+      "max_leaf_nodes": "None",
+      "max_samples": "None",
+      "min_impurity_decrease": "0.0",
+      "min_samples_leaf": "20",
+      "min_samples_split": "2",
+      "min_weight_fraction_leaf": "0.0",
+      "monotonic_cst": "None",
+      "n_estimators": "150",
+      "n_jobs": "3",
+      "oob_score": "False",
+      "random_state": "42",
+      "verbose": "0",
+      "warm_start": "False"
+    }
+  },
+  "LightGBM": {
+    "family": "Boosting",
+    "params": {
+      "boosting_type": "gbdt",
+      "class_weight": "None",
+      "colsample_bytree": "0.8",
+      "importance_type": "split",
+      "learning_rate": "0.05",
+      "max_depth": "-1",
+      "min_child_samples": "20",
+      "min_child_weight": "0.001",
+      "min_split_gain": "0.0",
+      "n_estimators": "400",
+      "n_jobs": "3",
+      "num_leaves": "63",
+      "objective": "None",
+      "random_state": "42",
+      "reg_alpha": "0.0",
+      "reg_lambda": "0.0",
+      "subsample": "0.8",
+      "subsample_for_bin": "200000",
+      "subsample_freq": "1",
+      "verbose": "-1"
+    }
+  },
+  "MLP": {
+    "family": "Neural network",
+    "params": {
+      "standardscaler__copy": "True",
+      "standardscaler__with_mean": "True",
+      "standardscaler__with_std": "True",
+      "mlpclassifier__activation": "relu",
+      "mlpclassifier__alpha": "0.0001",
+      "mlpclassifier__batch_size": "512",
+      "mlpclassifier__beta_1": "0.9",
+      "mlpclassifier__beta_2": "0.999",
+      "mlpclassifier__early_stopping": "True",
+      "mlpclassifier__epsilon": "1e-08",
+      "mlpclassifier__hidden_layer_sizes": "(64, 32)",
+      "mlpclassifier__learning_rate": "constant",
+      "mlpclassifier__learning_rate_init": "0.001",
+      "mlpclassifier__max_fun": "15000",
+      "mlpclassifier__max_iter": "40",
+      "mlpclassifier__momentum": "0.9",
+      "mlpclassifier__n_iter_no_change": "5",
+      "mlpclassifier__nesterovs_momentum": "True",
+      "mlpclassifier__power_t": "0.5",
+      "mlpclassifier__random_state": "42",
+      "mlpclassifier__shuffle": "True",
+      "mlpclassifier__solver": "adam",
+      "mlpclassifier__tol": "0.0001",
+      "mlpclassifier__validation_fraction": "0.1",
+      "mlpclassifier__verbose": "False",
+      "mlpclassifier__warm_start": "False"
+    }
+  },
+  "_protocol": {
+    "seed": 42,
+    "cv": "GroupKFold(5) by trip",
+    "train_point_stride": 3,
+    "excluded_train_trips": [
+      "00000033",
+      "00000054"
+    ],
+    "knn_max_rows": 80000,
+    "features": [
+      "dist",
+      "dist_sq",
+      "rank",
+      "dist_minus_min",
+      "dist_ratio_min",
+      "dist_z",
+      "n_cands",
+      "proj_t",
+      "beyond_end",
+      "log_arc_len",
+      "heading_valid",
+      "cos_dir",
+      "abs_cos",
+      "along_progress_m",
+      "speed_mps",
+      "dt_prev",
+      "dt_next",
+      "turn_deg",
+      "two_way",
+      "to_out_degree",
+      "from_in_degree",
+      "win2_seg_mean",
+      "win5_line_mean",
+      "nbr_cand_share"
+    ]
+  }
+}

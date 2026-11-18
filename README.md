@@ -13,8 +13,8 @@ Noisy GPS points → for each point, which road segment (arc) was the vehicle on
 
 | Stage | Due | State |
 | --- | --- | --- |
-| Data processing + feature engineering | 11:30 eval | in progress |
-| Model comparison (≥ 5 models) | 11:30 eval | in progress |
+| Data processing + feature engineering | 11:30 eval | done |
+| Model comparison (7 models) — LightGBM selected | 11:30 eval | done |
 | Bayesian hyperparameter optimisation | 15:00 eval | not started |
 | HMM / Viterbi | 15:00 eval | not started |
 | FastAPI + UI deployment | 15:00 eval | not started |
@@ -31,6 +31,16 @@ Put the dataset (from the Drive "Student folder.zip") here — it is not committ
 data/raw/train/<trip_id>/<trip_id>.{track,nodes,arcs,route}
 data/raw/student_test/<trip_id>/...
 ```
+
+## Run stage 1
+
+```bash
+python scripts/01_eda.py            # inventory, quality checks, plots, Folium map  (~25 s)
+python scripts/02_build_dataset.py  # labels, candidates, features                  (~15 s)
+python scripts/03_train_models.py   # 7 models, GroupKFold CV + student_test        (~10 min)
+```
+
+Plain-language explanation of stage 1: [docs/STAGE1_NOTES.md](docs/STAGE1_NOTES.md).
 
 ## Layout
 

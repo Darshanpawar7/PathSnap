@@ -1,0 +1,24 @@
+fit rows=393,932 (78 trips, 61,109 points), student_test rows=131,630 (19,160 points)
+[LogisticRegression] CV macroF1=0.9213±0.0144 CV top1=0.8749 | test macroF1=0.9217 top1=0.8819 logloss=0.1034 cont=0.9382 | 9s
+[GaussianNB        ] CV macroF1=0.7822±0.0081 CV top1=0.8559 | test macroF1=0.7787 top1=0.8601 logloss=0.9775 cont=0.9109 | 2s
+[KNN               ] CV macroF1=0.9206±0.0139 CV top1=0.8678 | test macroF1=0.9231 top1=0.8752 logloss=0.1285 cont=0.9266 | 152s
+[DecisionTree      ] CV macroF1=0.9224±0.0157 CV top1=0.8724 | test macroF1=0.9268 top1=0.8788 logloss=0.1028 cont=0.9292 | 23s
+[RandomForest      ] CV macroF1=0.9288±0.0132 CV top1=0.8768 | test macroF1=0.9307 top1=0.8836 logloss=0.0832 cont=0.9330 | 230s
+[LightGBM          ] CV macroF1=0.9303±0.0134 CV top1=0.8808 | test macroF1=0.9367 top1=0.8949 logloss=0.0790 cont=0.9433 | 36s
+C:\Users\darsh\AppData\Roaming\Python\Python314\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (40) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\darsh\AppData\Roaming\Python\Python314\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (40) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\darsh\AppData\Roaming\Python\Python314\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (40) reached and the optimization hasn't converged yet.
+  warnings.warn(
+C:\Users\darsh\AppData\Roaming\Python\Python314\site-packages\sklearn\neural_network\_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (40) reached and the optimization hasn't converged yet.
+  warnings.warn(
+[MLP               ] CV macroF1=0.9247±0.0150 CV top1=0.8761 | test macroF1=0.9312 top1=0.8863 logloss=0.0866 cont=0.9448 | 116s
+             model             family  cv_macro_f1  cv_macro_f1_std  cv_top1  cv_log_loss  cv_train_macro_f1  test_accuracy  test_precision  test_recall  test_f1  test_macro_f1  test_log_loss  test_top1  test_top1_undirected  test_route_continuity  fit_time_s  infer_time_s  infer_ms_per_1k_points
+LogisticRegression             Linear       0.9213           0.0144   0.8749       0.1153             0.9230         0.9608          0.8570       0.8761   0.8664         0.9217         0.1034     0.8819                0.9359                 0.9382      1.1079        0.0164                  0.8569
+        GaussianNB      Probabilistic       0.7822           0.0081   0.8559       1.0318             0.7801         0.8529          0.4965       0.9435   0.6506         0.7787         0.9775     0.8601                0.9181                 0.9109      0.2757        0.0745                  3.8905
+               KNN     Instance-based       0.9206           0.0139   0.8678       0.1498             1.0000         0.9616          0.8629       0.8744   0.8686         0.9231         0.1285     0.8752                0.9313                 0.9266      0.0477       20.6524               1077.8910
+      DecisionTree         Tree-based       0.9224           0.0157   0.8724       0.1197             0.9348         0.9643          0.8923       0.8574   0.8745         0.9268         0.1028     0.8788                0.9334                 0.9292      8.2368        0.0087                  0.4554
+      RandomForest Ensemble (bagging)       0.9288           0.0132   0.8768       0.0918             0.9411         0.9663          0.9020       0.8611   0.8811         0.9307         0.0832     0.8836                0.9350                 0.9330     61.0008        0.5668                 29.5813
+          LightGBM           Boosting       0.9303           0.0134   0.8808       0.0898             0.9610         0.9691          0.9108       0.8728   0.8914         0.9367         0.0790     0.8949                0.9413                 0.9433      6.4742        1.0909                 56.9388
+               MLP     Neural network       0.9247           0.0150   0.8761       0.0977             0.9368         0.9668          0.9114       0.8541   0.8818         0.9312         0.0866     0.8863                0.9410                 0.9448     56.4731        0.0648                  3.3836
