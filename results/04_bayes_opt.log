@@ -1,0 +1,45 @@
+trial  0 COMPLETE value=0.8802 best=0.8802 elapsed=23s
+trial  1 COMPLETE value=0.8783 best=0.8802 elapsed=98s
+trial  2 COMPLETE value=0.8798 best=0.8802 elapsed=140s
+trial  3 COMPLETE value=0.8805 best=0.8805 elapsed=178s
+trial  4 COMPLETE value=0.8802 best=0.8805 elapsed=213s
+trial  5 COMPLETE value=0.8801 best=0.8805 elapsed=252s
+trial  6 COMPLETE value=0.8766 best=0.8805 elapsed=268s
+trial  7 COMPLETE value=0.8802 best=0.8805 elapsed=406s
+trial  8 PRUNED   value=0.8836 best=0.8805 elapsed=427s
+trial  9 PRUNED   value=0.8842 best=0.8805 elapsed=435s
+trial 10 PRUNED   value=0.8846 best=0.8805 elapsed=441s
+trial 11 COMPLETE value=0.8805 best=0.8805 elapsed=555s
+trial 12 PRUNED   value=0.8852 best=0.8805 elapsed=576s
+trial 13 PRUNED   value=0.8854 best=0.8805 elapsed=602s
+trial 14 PRUNED   value=0.8853 best=0.8805 elapsed=625s
+trial 15 PRUNED   value=0.8851 best=0.8805 elapsed=646s
+trial 16 COMPLETE value=0.8812 best=0.8812 elapsed=752s
+trial 17 COMPLETE value=0.8804 best=0.8812 elapsed=845s
+trial 18 COMPLETE value=0.8812 best=0.8812 elapsed=914s
+trial 19 COMPLETE value=0.8815 best=0.8815 elapsed=959s
+trial 20 COMPLETE value=0.8814 best=0.8815 elapsed=1054s
+trial 21 COMPLETE value=0.8813 best=0.8815 elapsed=1122s
+trial 22 COMPLETE value=0.8818 best=0.8818 elapsed=1196s
+trial 23 COMPLETE value=0.8815 best=0.8818 elapsed=1250s
+trial 24 COMPLETE value=0.8805 best=0.8818 elapsed=1315s
+trial 25 COMPLETE value=0.8813 best=0.8818 elapsed=1369s
+trial 26 COMPLETE value=0.8813 best=0.8818 elapsed=1435s
+trial 27 COMPLETE value=0.8818 best=0.8818 elapsed=1510s
+trial 28 PRUNED   value=0.8836 best=0.8818 elapsed=1533s
+trial 29 PRUNED   value=0.8859 best=0.8818 elapsed=1554s
+{
+  "n_estimators": 450,
+  "learning_rate": 0.06720048362851774,
+  "num_leaves": 153,
+  "min_child_samples": 116,
+  "subsample": 0.9241211237629218,
+  "colsample_bytree": 0.6407030457466177,
+  "reg_alpha": 0.0903164890587981,
+  "reg_lambda": 0.40013583267902636,
+  "subsample_freq": 1
+}
+           model  cv_macro_f1  cv_top1  cv_log_loss  test_top1  test_top1_undirected  test_macro_f1  test_log_loss  fit_time_s  infer_time_s  infer_ms_per_1k_points
+LightGBM untuned       0.9303   0.8808       0.0898     0.8949                0.9413         0.9367         0.0790      5.8375        0.5973                 31.1754
+  LightGBM tuned       0.9293   0.8818       0.0952     0.8926                0.9406         0.9347         0.0827     10.0057        1.0528                 54.9470
+search took 1554s

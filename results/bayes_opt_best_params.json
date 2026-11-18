@@ -1,0 +1,27 @@
+{
+  "objective": "mean 5-fold GroupKFold observation-level Top-1 accuracy (train partition)",
+  "sampler": "Optuna TPESampler(seed=42, n_startup_trials=8)",
+  "pruner": "MedianPruner(n_startup_trials=8, n_warmup_steps=1)",
+  "n_trials": 30,
+  "n_pruned": 9,
+  "search_seconds": 1554.2,
+  "best_trial": 22,
+  "best_cv_top1": 0.8818194484811569,
+  "best_params": {
+    "n_estimators": 450,
+    "learning_rate": 0.06720048362851774,
+    "num_leaves": 153,
+    "min_child_samples": 116,
+    "subsample": 0.9241211237629218,
+    "colsample_bytree": 0.6407030457466177,
+    "reg_alpha": 0.0903164890587981,
+    "reg_lambda": 0.40013583267902636,
+    "subsample_freq": 1
+  },
+  "best_cv_scores": {
+    "cv_top1": 0.8818194484811569,
+    "cv_macro_f1": 0.9293318431686023,
+    "cv_macro_f1_std": 0.014546827389467892,
+    "cv_log_loss": 0.09516667115939552
+  }
+}
