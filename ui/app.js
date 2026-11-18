@@ -79,7 +79,10 @@
       p.className = "hint";
       p.textContent = "Could not load trips.";
       els.trips.appendChild(p);
-      setStatus("Connection failed: " + err.message, "err");
+      const isLocal = /\/\/(localhost|127\.0\.0\.1)(:|\/|$)/i.test(api);
+      setStatus(isLocal
+        ? "Connection failed: 'localhost' means THIS computer. On laptop 2, type laptop 1's address as printed by run_api.bat, e.g. http://10.1.16.58:8000"
+        : "Connection failed (" + err.message + "). Check laptop 1 is running run_api.bat, both laptops are on the same Wi-Fi, and " + api + "/health opens in this browser.", "err");
     } finally {
       els.btn.disabled = false;
     }
@@ -199,7 +202,7 @@
   const params = new URLSearchParams(location.search);
   const fromQuery = params.get("api");
   const autoTrip = params.get("trip");
-  els.url.value = fromQuery || readStoredUrl() || "http://localhost:8000";
+  els.url.value = fromQuery || readStoredUrl() || "http://";
   els.form.addEventListener("submit", connect);
   if (fromQuery || readStoredUrl()) {
     connect().then(() => { if (autoTrip && api) predict(autoTrip); });

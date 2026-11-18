@@ -55,7 +55,9 @@ async def lifespan(_app: FastAPI):
 
 
 app = FastAPI(title="PathSnap API", version="1.0", lifespan=lifespan)
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["GET", "POST"], allow_headers=["*"])
+# allow_private_network: Chrome asks permission before a page calls an address on the local network
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["GET", "POST"], allow_headers=["*"],
+                   allow_private_network=True)
 
 
 class PredictRequest(BaseModel):
