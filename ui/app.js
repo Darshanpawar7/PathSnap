@@ -8,6 +8,7 @@
     form: $("connect-form"), url: $("api-url"), btn: $("connect-btn"), status: $("status"),
     trips: $("trips"), result: $("result-block"), resultTrip: $("result-trip"),
     hmm: $("m-hmm"), body: $("metrics-body"), overlay: $("overlay"), overlayText: $("overlay-text"),
+    compare: $("compare"), compareHint: $("compare-hint"), compareBody: $("compare-body"),
   };
 
   let api = "";
@@ -125,6 +126,8 @@
       }, 120000);
       const roundTrip = (performance.now() - t0) / 1000;
       draw(res);
+      showCompare(res.metrics);
+      setView("both");
       showMetrics(res, roundTrip);
       setStatus("Trip " + tripId + " matched in " + roundTrip.toFixed(1) + " s", "ok");
     } catch (err) {
@@ -157,6 +160,44 @@
       map.fitBounds(L.latLngBounds(res.gps), { padding: [30, 30] });
     }
   }
+
+  // ---------------------------------------------------------------- before vs after HMM
+  function setView(view) {
+    // "before" = classifier-only route, "after" = classifier + HMM route; GPS points stay visible
+    const shown = { before: [groups.clf], after: [groups.hmm], both: [groups.clf, groups.hmm] }[view];
+    [groups.clf, groups.hmm].forEach((g) => {
+      if (shown.includes(g)) map.addLayer(g); else map.removeLayer(g);
+    });
+    document.querySelectorAll(".seg button").forEach((b) => b.classList.toggle("active", b.dataset.view === view));
+  }
+
+  function showCompare(m) {
+    const rows = [
+      ["Point accuracy", m.classifier_accuracy, m.hmm_accuracy, true],
+      ["Ignoring direction", m.classifier_accuracy_undirected, m.hmm_accuracy_undirected, true],
+      ["Route F1", m.classifier_route_f1, m.route_f1, true],
+      ["Continuity", m.classifier_continuity, m.hmm_continuity, false],
+    ];
+    els.compareBody.innerHTML = "";
+    rows.forEach(([label, before, after, isPct]) => {
+      const d = after - before;
+      const change = (d >= 0 ? "+" : "") + (isPct ? (100 * d).toFixed(1) + " pts" : d.toFixed(3));
+      const cells = [label, isPct ? pct(before) : num(before), isPct ? pct(after) : num(after), change];
+      const tr = document.createElement("tr");
+      cells.forEach((text, i) => {
+        const td = document.createElement("td");
+        td.textContent = text;
+        if (i === 2) td.className = "after";
+        if (i === 3) td.className = "delta " + (Math.abs(d) < 0.0005 ? "same" : d > 0 ? "up" : "down");
+        tr.appendChild(td);
+      });
+      els.compareBody.appendChild(tr);
+    });
+    els.compareHint.hidden = true;
+    els.compare.hidden = false;
+  }
+
+  document.querySelectorAll(".seg button").forEach((b) => b.addEventListener("click", () => setView(b.dataset.view)));
 
   function showMetrics(res, roundTrip) {
     const m = res.metrics, t = res.timings_s;

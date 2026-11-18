@@ -26,6 +26,24 @@
       <p id="status" class="status" role="status">Not connected</p>
     </section>
 
+    <section class="block" id="compare-block">
+      <h2>Before vs after HMM</h2>
+      <p id="compare-hint" class="hint">Pick a trip. "Before" is the classifier alone; "after" adds the HMM + Viterbi route reconstruction.</p>
+      <div id="compare" hidden>
+        <table class="compare">
+          <thead>
+            <tr><th></th><th>Before<span>classifier only</span></th><th>After<span>+ HMM</span></th><th>Change</th></tr>
+          </thead>
+          <tbody id="compare-body"></tbody>
+        </table>
+        <div class="seg" role="group" aria-label="Route shown on the map">
+          <button type="button" data-view="before">Before</button>
+          <button type="button" data-view="after">After</button>
+          <button type="button" data-view="both" class="active">Both</button>
+        </div>
+      </div>
+    </section>
+
     <section class="block">
       <h2>Evaluation trips</h2>
       <div id="trips" class="trips"><p class="hint">Connect to load the trips.</p></div>

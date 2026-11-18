@@ -94,6 +94,28 @@ button:disabled { opacity: .55; cursor: wait; }
 .metrics td:last-child { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
 .metrics tr.section td { padding-top: 12px; color: var(--slate); font-weight: 700; border-bottom: 0; text-align: left; }
 
+.compare { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 12px; }
+.compare th { padding: 0 0 6px; text-align: right; font-size: 12px; font-weight: 700; color: var(--slate); }
+.compare th:first-child { text-align: left; }
+.compare th span { display: block; font-size: 11px; font-weight: 400; color: var(--muted); }
+.compare td { padding: 6px 0; border-bottom: 1px solid var(--tint); text-align: right; font-variant-numeric: tabular-nums; }
+.compare td:first-child { text-align: left; }
+.compare td.after { font-weight: 700; }
+.delta { font-weight: 700; }
+.delta.up { color: var(--green); }
+.delta.down { color: var(--red); }
+.delta.same { color: var(--muted); }
+
+.seg { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.seg button {
+  flex: 1; padding: 7px 0; font-size: 13px;
+  border: 0; border-radius: 0; background: var(--bg); color: var(--ink);
+}
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button:hover:not(.active) { background: var(--tint); }
+.seg button.active { background: var(--ink); color: #fff; }
+.seg button:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+
 .legend ul { list-style: none; margin: 0; padding: 0; }
 .legend li { display: flex; align-items: center; gap: 8px; padding: 3px 0; font-size: 13px; }
 .sw { display: inline-block; width: 22px; height: 0; border-top: 4px solid; border-radius: 2px; }
