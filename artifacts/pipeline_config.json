@@ -1,0 +1,52 @@
+{
+  "model_name": "LightGBM (Bayesian-tuned)",
+  "model_file": "lightgbm_tuned.joblib",
+  "features": [
+    "dist",
+    "dist_sq",
+    "rank",
+    "dist_minus_min",
+    "dist_ratio_min",
+    "dist_z",
+    "n_cands",
+    "proj_t",
+    "beyond_end",
+    "log_arc_len",
+    "heading_valid",
+    "cos_dir",
+    "abs_cos",
+    "along_progress_m",
+    "speed_mps",
+    "dt_prev",
+    "dt_next",
+    "turn_deg",
+    "two_way",
+    "to_out_degree",
+    "from_in_degree",
+    "win2_seg_mean",
+    "win5_line_mean",
+    "nbr_cand_share"
+  ],
+  "candidate_radius_m": 50.0,
+  "candidate_k": 10,
+  "hmm": {
+    "beta": 1.0,
+    "emission_weight": 1.0,
+    "break_gap_s": 120.0,
+    "min_cutoff_m": 300.0,
+    "max_cutoff_m": 8000.0
+  },
+  "lightgbm_params": {
+    "n_estimators": 450,
+    "learning_rate": 0.06720048362851774,
+    "num_leaves": 153,
+    "min_child_samples": 116,
+    "subsample": 0.9241211237629218,
+    "colsample_bytree": 0.6407030457466177,
+    "reg_alpha": 0.0903164890587981,
+    "reg_lambda": 0.40013583267902636,
+    "subsample_freq": 1
+  },
+  "trained_on": "train partition (78 trips, every 3rd GPS point); decoder tuned on out-of-fold train predictions",
+  "created": "2026-11-18"
+}

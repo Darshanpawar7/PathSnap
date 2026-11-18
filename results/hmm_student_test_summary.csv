@@ -1,0 +1,3 @@
+method,pointwise_accuracy,pointwise_accuracy_undirected,route_continuity_mean,route_precision_mean,route_recall_mean,route_f1_mean,trips_improved_vs_classifier
+Classifier only (tuned LightGBM),0.8925887265135699,0.9406054279749478,0.9440358391150644,0.7575083267764281,0.9963426689157332,0.8557359854726979,
+Classifier + HMM/Viterbi,0.928705636743215,0.972964509394572,0.9784812577593177,0.9798271415006823,0.9972570992139007,0.9883671365072662,10.0
